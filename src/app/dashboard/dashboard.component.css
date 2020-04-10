@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    background-color: #dbdbdb;
+    padding: 20px 35px;
+}
+
+.statics_container{
+    flex: 2;
+}
+.feeds_container{
+    flex: 1;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+app-cases{
+    flex: 1;
+}
+app-countries{
+    flex: 1;
+}
+app-world-map{
+    flex:2
+}
+app-spread-chart{
+    flex:1;
+}
+app-news{
+    flex:1;
+}
