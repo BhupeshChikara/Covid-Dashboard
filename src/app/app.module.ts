@@ -14,6 +14,7 @@ import { WorldMapComponent } from './dashboard/world-map/world-map.component';
 import { SpreadChartComponent } from './dashboard/spread-chart/spread-chart.component';
 import { NewsComponent } from './dashboard/news/news.component';
 import { RecoveryComponent } from './dashboard/recovery/recovery.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { RecoveryComponent } from './dashboard/recovery/recovery.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

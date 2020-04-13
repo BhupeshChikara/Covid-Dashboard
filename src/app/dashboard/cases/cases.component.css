@@ -1,26 +1,45 @@
 .card{
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
     padding: 10px;
     margin-right: 20px;
     margin-bottom: 20px;
+    max-width:181px;
 }
 .row{
- display: flex;
- align-items: center;  
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
 }
 .col{
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 .col p:first-child{
-    font-size: 15px;
+    font-size: 12px;
 }
-.col:last-child img{
-    width: 60px;
+.col:first-child p:last-child{
+    font-size: 20px;
+    font-weight: 900;
 }
 p{
     margin: 0;
+}
+.peak{
+    position: absolute;
+    top: 0;
+}
+.peak img{
+    position: absolute;
+    width: 30px;
+    left:14px
+}
+.peak p{
+    position: absolute;
+    color:red;
+    font-size: 8px;
+    padding: 2px;
+    left: 18px;
+    /* top: 0; */
 }

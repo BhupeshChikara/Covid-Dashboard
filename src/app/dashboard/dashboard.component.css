@@ -1,7 +1,9 @@
+
 .container{
     display: flex;
-    background-color: #dbdbdb;
+    background-color: #F7F7F7;
     padding: 20px 35px;
+    flex-wrap: wrap;
 }
 
 .statics_container{
@@ -22,9 +24,11 @@ app-countries{
 }
 app-world-map{
     flex:2
+    
 }
 app-spread-chart{
     flex:1;
+
 }
 app-news{
     flex:1;
