@@ -33,3 +33,9 @@ p:first-child{
     font-size: 17px;
     font-weight: 900;
 }
+@media (max-width:420px){
+    .card{
+        margin-right: 0;
+    }
+    
+}

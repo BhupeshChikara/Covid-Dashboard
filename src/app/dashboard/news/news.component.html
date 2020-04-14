@@ -1,3 +1,46 @@
 <div class="card">
-    <p>news works!</p>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="col">
+                <img src="assets/images/Illustration.svg" style="width:140px">
+            </div>
+            <div class="col">
+                <button>YouTube feeds</button>
+                <p>What is self distancing</p>
+                <a routerLink="/">Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+        
+<div class="mySlides fade">
+            <div class="col">
+                <img src="assets/images/Illustration.svg" style="width:140px">
+            </div>
+            <div class="col">
+                <button>News &amp; Updates</button>
+                <p>5 Symptoms of Corona Virus you should know</p>
+                <a routerLink="/">Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+        
+<div class="mySlides fade">
+            <div class="col">
+                <img src="assets/images/Illustration.svg" style="width:140px">
+            </div>
+            <div class="col">
+                <button>Helpful links</button>
+                <p>Right way to wash hands</p>
+                <a routerLink="/importantLinks">Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+        </div>
+        <br>
+        <div style="display: flex;align-items: center;justify-content: center;">
+            <span class="dot" (click)="currentSlide(1)"></span> 
+            <span class="dot" (click)="currentSlide(2)"></span> 
+          <span class="dot" (click)="currentSlide(3)"></span> 
+        </div>
 </div>

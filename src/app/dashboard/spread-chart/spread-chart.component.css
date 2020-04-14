@@ -7,3 +7,37 @@
     padding: 20px;
     height: 210px;
 }
+.row{
+    display: flex;
+}
+.row:first-child{
+    justify-content: space-between;
+}
+button{
+    border:none;
+    background-color: #F5F5F5;
+    padding: 3px;
+    font-size: 11px;
+    cursor: pointer;
+}
+button:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+button:last-child{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius:5px ;
+}
+h3{
+    font-size: 15px;
+}
+.active{
+    background-color: #52586A;
+    color: white;
+}
+@media (max-width:420px){
+    .card{
+        margin-right: 0;
+    }
+    
+}

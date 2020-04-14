@@ -61,9 +61,17 @@ ul li .detail .name{
   .country{
     display: flex;
     justify-content: space-between;
+
+    flex-wrap: wrap;
   }
   .country .type{
     display: flex;
     align-items: center;
   }
   .fontAwesome{ font-family: 'Helvetica', FontAwesome, sans-serif; }
+  @media (max-width:420px){
+    .card{
+        margin-right: 0;
+    }
+    
+}

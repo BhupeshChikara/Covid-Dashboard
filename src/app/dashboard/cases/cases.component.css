@@ -5,12 +5,11 @@
     padding: 10px;
     margin-right: 20px;
     margin-bottom: 20px;
-    max-width:181px;
 }
 .row{
     display: flex;
     align-items: center; 
-    justify-content: center; 
+    justify-content: space-evenly;
 }
 .col{
     display: flex;
@@ -42,4 +41,10 @@ p{
     padding: 2px;
     left: 18px;
     /* top: 0; */
+}
+@media (max-width:420px){
+    .card{
+        margin-right: 0;
+    }
+    
 }

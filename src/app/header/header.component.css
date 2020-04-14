@@ -36,3 +36,9 @@ ul li:last-child{
     color: #ff0019;
     border-bottom: 3px solid #ff0019;
 }
+@media (max-width:420px){
+    ul{
+        display: none;
+    }
+    
+}
