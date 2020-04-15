@@ -14,16 +14,16 @@
     padding: 0 10px;
 }
 p{
-    font-size: 13px;
+    font-size: 12px;
 }
 span{
-    font-size: 13px;
+    font-size: 12px;
 }
 .tweets{
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    height: 400px;
+    height: 323px;
 }
 .tweet{
     border-bottom: 1px solid #dbdbdb;

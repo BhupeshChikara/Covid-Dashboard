@@ -17,19 +17,21 @@
     flex-wrap: wrap;
 }
 app-cases{
+    display: flex;
     flex: 1;
+    flex-wrap: wrap;
 }
 app-countries{
     flex: 1;
 }
 app-world-map{
-    flex:2
+    flex: 2;
     
 }
 app-spread-chart{
-    flex:1;
+    flex: 1;
 
 }
 app-news{
-    flex:1;
+    flex: 1;
 }

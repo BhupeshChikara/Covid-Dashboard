@@ -1,10 +1,15 @@
 .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.12);
     margin-right: 20px;
     margin-bottom: 20px;
     padding: 20px;
+    height: 210px;
 }
 .mySlides {display: none;}
 img {vertical-align: middle;}

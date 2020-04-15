@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-recovery',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recovery.component.css']
 })
 export class RecoveryComponent implements OnInit {
-
-  constructor() { }
+ 
+  cases
+  constructor(private dashboardService:DashboardService) { }
 
   ngOnInit(): void {
+    this.dashboardService.getCases().subscribe(res=>this.cases=res)
+  }
+
+  getPercentage(){
+    return ((this.cases.recovered*100)/this.cases.cases).toFixed(1)
   }
 
 }

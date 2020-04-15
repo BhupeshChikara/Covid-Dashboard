@@ -15,6 +15,8 @@ import { SpreadChartComponent } from './dashboard/spread-chart/spread-chart.comp
 import { NewsComponent } from './dashboard/news/news.component';
 import { RecoveryComponent } from './dashboard/recovery/recovery.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ChartsModule } from 'ng2-charts';
+import { DecimalPipe } from './pipes/decimal.pipe'
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     WorldMapComponent,
     SpreadChartComponent,
     NewsComponent,
-    RecoveryComponent
+    RecoveryComponent,
+    DecimalPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
     NgCircleProgressModule.forRoot({
     })
   ],

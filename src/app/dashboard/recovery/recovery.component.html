@@ -3,8 +3,8 @@
     <circle-progress
     [backgroundColor]= "'#fff'"
     [backgroundPadding]= "-4"
-  [percent]="71.1"
-  [radius]="100"
+  [percent]="getPercentage()"
+  [radius]="80"
   [toFixed]="1"
   [outerStrokeWidth]="5"
   [innerStrokeWidth]="40"
@@ -21,6 +21,6 @@
   [startFromZero]="true"
 ></circle-progress>
 <p>
-    857.5k Affected | 157.3k Recovered
+    {{cases.cases | decimal}} Affected | {{cases.recovered | decimal}} Recovered
 </p>
 </div>
