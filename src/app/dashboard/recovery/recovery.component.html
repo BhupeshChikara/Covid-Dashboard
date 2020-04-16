@@ -20,7 +20,7 @@
   [animationDuration]="1300"
   [startFromZero]="true"
 ></circle-progress>
-<p>
+<p *ngIf="cases">
     {{cases.cases | decimal}} Affected | {{cases.recovered | decimal}} Recovered
 </p>
 </div>

@@ -16,6 +16,7 @@ export class RecoveryComponent implements OnInit {
   }
 
   getPercentage(){
+    if(this.cases)
     return ((this.cases.recovered*100)/this.cases.cases).toFixed(1)
   }
 

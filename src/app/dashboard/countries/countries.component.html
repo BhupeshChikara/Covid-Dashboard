@@ -3,19 +3,26 @@
         <input class="fontAwesome" type="text" #query (keyup)="filter(query.value)" placeholder="&#xf002; Search Location">
     </div>
     <ul type="none">
-        <li *ngFor="let item of countries;let i = index">
-            <div class="country">
-                <div class="detail">
-                    <div class="name">
-                        <img width="20px" src="{{item.countryInfo.flag}}" alt="">
-                        <p style="display: inline-block; margin-left:10px;font-weight: bolder;">{{item.country}}</p>
+        <ng-container *ngIf="countries;else noItem">
+            <li *ngFor="let item of countries;let i = index">
+                <div class="country">
+                    <div class="detail">
+                        <div class="name">
+                            <img width="20px" src="{{item.countryInfo.flag}}" alt="">
+                            <p style="display: inline-block; margin-left:10px;font-weight: bolder;">{{item.country}}</p>
+                        </div>
+                        <p style="font-size:10px;color: darkgray;">{{ item.cases | decimal }} Affected | {{item.recovered | decimal}} Recovered</p>
                     </div>
-                    <p style="font-size:10px;color: darkgray;">{{ item.cases | decimal }} Affected | {{item.recovered | decimal}} Recovered</p>
+                    <div class="type">
+                        <img src="assets/images/Up.svg" alt="">
+                    </div>
                 </div>
-                <div class="type">
-                    <img src="assets/images/Up.svg" alt="">
-                </div>
-            </div>
-        </li>
+            </li>
+        </ng-container>
+        <ng-container #noItem>
+          <li>
+              There is no result
+          </li>
+        </ng-container>
     </ul>
 </div>

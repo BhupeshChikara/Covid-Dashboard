@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Color } from 'ng2-charts';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-spread-chart',
@@ -9,94 +10,49 @@ import { Color } from 'ng2-charts';
 export class SpreadChartComponent implements OnInit {
 
   activeButton='confirmed';
+  confirmedTimeSeries=[];
+  recoveredTimeSeries=[];
+  deathsTimeSeries=[];
+  
 
-  chartOptions = {
-    responsive: true,
-    scales: {
-      xAxes: [{
-         
-        color:'black',
-          gridLines: {
-              drawOnChartArea: false
-          }
-      }],
-      yAxes: [{
-        position: 'right',
-          gridLines: {
-              drawOnChartArea: false
-          },
-          ticks: {maxTicksLimit:5
-           } 
-      }]
-  }
-  };
-
-  chartData = [
-    { data: [330, 600, 260, 700], label: 'Confirmed',
-    borderDash: [2,1] }
-  ];
-
-  chartLabels = ['January', 'February', 'March', 'April'];
-
-  lineChartColors: Color[] = [
-    {
-      borderColor: '#ff0019',
-      backgroundColor: 'rgb(255,255, 255)',
-    },
-  ];
-
-  lineChartLegend = false;
-  lineChartPlugins = [];
-  lineChartType = 'line';
-
-  constructor() { }
+  constructor(private dashboardService:DashboardService) { }
   
   ngOnInit(): void {
+       this.dashboardService.getTimeSeries().subscribe(res=>{
+         this.convertToWorld(res)
+       })
+  }
+
+  convertToWorld(value){
+     Object.keys(value).forEach(element=>{
+       for(let index in value[element]){
+         if(this.confirmedTimeSeries[index]){
+         this.confirmedTimeSeries[index]+=value[element][index].confirmed
+         this.deathsTimeSeries[index]+=value[element][index].deaths
+         this.recoveredTimeSeries[index]+=value[element][index].recovered
+        }
+         else{
+         this.confirmedTimeSeries[index]=value[element][index].confirmed         
+         this.deathsTimeSeries[index]=value[element][index].deaths
+         this.recoveredTimeSeries[index]=value[element][index].recovered
+        }
+       }  
+     })
   }
   
   changeClass(value){
     this.activeButton=value;
     if(value==='confirmed'){
-      this.chartData=[
-        { data: [120, 455, 100, 340], label: 'Confirmed',
-        borderDash: [2,1] }
-      ]
-      this.lineChartColors=[
-        {
-          borderColor: '#ff0019',
-          backgroundColor: 'rgb(255,255, 255)',
-        },
-      ];
+     
     }
     else if(value==='deaths'){
-      this.chartData=[
-        { data: [120, 455, 100, 340], label: 'Deaths',
-        borderDash: [2,1] }
-      ]
-      this.lineChartColors=[
-        {
-          borderColor: '#ff0019',
-          backgroundColor: 'rgb(255,255, 255)'
-        }
-      ];
+
     }
     else{
-      this.chartData=[
-        { data: [120, 455, 100, 340], label: 'Recovered',
-        borderDash: [2,1] }
-      ]
-      this.lineChartColors=[
-        {
-          borderColor: '#06BA90',
-          backgroundColor: 'rgb(255,255, 255)',
-        },
-      ];  
+     
     } 
   }
   
-  onChartClick(event) {
-    console.log(event);
-  }
 
   getClass(value){
     if (this.activeButton===value)

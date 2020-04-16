@@ -26,6 +26,10 @@ export class DashboardService {
 
   getNewsFeeds(){
 
-  }  
+  } 
+  
+  getTimeSeries(){
+    return this.http.get('https://pomber.github.io/covid19/timeseries.json')
+  }
 
 }

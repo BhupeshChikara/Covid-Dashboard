@@ -9,17 +9,6 @@
             <button (click)="changeClass('deaths')" [ngClass]="getClass('deaths')">Deaths</button>
         </div>
     </div>
-    <div style="width: 100%;height: 300px;padding-top: 20px;">
-        <canvas
-            baseChart
-            [chartType]="'line'"
-            [datasets]="chartData"
-            [labels]="chartLabels"
-            [options]="chartOptions"
-            [colors]="lineChartColors" 
-            [legend]="lineChartLegend"
-            (chartClick)="onChartClick($event)">
-        </canvas>
-      </div>
+  
 </div>
 
