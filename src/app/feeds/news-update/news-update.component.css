@@ -4,30 +4,36 @@
 .container{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
+
+    flex: 1;
     padding: 20px;
 }
 .card{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
     cursor: pointer;
     box-sizing: border-box;
     border: 1px solid lightgray;
     background-color: white;
     border-radius: 5px;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
     text-decoration: none;
+    min-width: 300px;
 }
-.card:hover{
-    background-color: rgb(255, 247, 247);
-    border-color:#ff0019
+.row:first-child{
+    margin-bottom: 10px;
 }
-.fa-search{
-    margin-right: 5px;
-    color: #ff0019;
+.row{
+    display: inline-block;
+    margin: 0 auto;
 }
 p{
-    color: #ff0019;
+    text-align: justify;
 }

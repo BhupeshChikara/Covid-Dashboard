@@ -16,13 +16,16 @@ export class CasesComponent implements OnInit {
 
   ngOnInit(): void {
     this.dashboardService.getCases().subscribe(res=>{
-      console.log(res)
-      this.cases[0].count=res['cases']
-      this.cases[0].todayCount=res['todayCases']/1000
-      this.cases[1].count=res['recovered']
-      this.cases[2].count=res['active']
-      this.cases[3].count=res['deaths']
+      this.updateCases(res)     
     })
+  }
+
+  updateCases(value){
+    this.cases[0].count=value['cases']
+      this.cases[0].todayCount=value['todayCases']/1000
+      this.cases[1].count=value['recovered']
+      this.cases[2].count=value['active']
+      this.cases[3].count=value['deaths']
   }
 
 }

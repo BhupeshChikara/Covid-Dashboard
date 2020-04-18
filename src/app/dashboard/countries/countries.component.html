@@ -3,7 +3,7 @@
         <input class="fontAwesome" type="text" #query (keyup)="filter(query.value)" placeholder="&#xf002; Search Location">
     </div>
     <ul type="none">
-        <ng-container *ngIf="countries;else noItem">
+        <ng-container *ngIf="countries.length;else noCountry">
             <li *ngFor="let item of countries;let i = index">
                 <div class="country">
                     <div class="detail">
@@ -17,12 +17,12 @@
                         <img src="assets/images/Up.svg" alt="">
                     </div>
                 </div>
+            </li>  
+        </ng-container>
+        <ng-template #noCountry>
+            <li>
+                There is no item
             </li>
-        </ng-container>
-        <ng-container #noItem>
-          <li>
-              There is no result
-          </li>
-        </ng-container>
+        </ng-template>
     </ul>
 </div>

@@ -2,24 +2,52 @@
 .container{
     display: flex;
     background-color: #F7F7F7;
-    padding: 20px 35px;
+    padding: 10px 25px;
     flex-wrap: wrap;
 }
 
 .statics_container{
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
+
 .feeds_container{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
+
 .row{
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
+    flex: 1;
 }
+
+.feeds{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.feeds img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ff0019;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
 app-cases{
     display: flex;
     flex: 1;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 app-countries{
     flex: 1;
@@ -30,8 +58,30 @@ app-world-map{
 }
 app-spread-chart{
     flex: 1;
-
 }
 app-news{
     flex: 1;
+    margin: 10px;
+}
+
+@media (max-width:1060px){
+   .statics_container,.feeds_container{
+       width: 100%;
+       flex: none;
+   }
+}
+@media (max-width:768px){
+    app-countries{
+        width: 100%;
+    }
+    app-world-map{
+        flex: none;
+        width: 100%;        
+    }
+    app-spread-chart{
+        width: 100%;
+    }
+    app-news{
+        width: 100%;
+    }
 }

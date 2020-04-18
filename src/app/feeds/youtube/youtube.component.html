@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="card" *ngFor="let item of videos;let i=index">
+        <div class="row">
+            <iframe [src]="getEmbededUrl(item)" frameborder="0"></iframe>
+        </div>
+        <div class="row">
+            <p>{{item.snippet.title}}</p>
+        </div>
+    </div>
+</div>

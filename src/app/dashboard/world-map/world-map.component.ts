@@ -8,38 +8,44 @@ declare var sample_data:any;
   styleUrls: ['./world-map.component.css']
 })
 export class WorldMapComponent implements OnInit {
+  
   countries={};
+
   constructor(private dashboardService:DashboardService) { }
 
   ngOnInit(): void {
     this.dashboardService.getCountriesData().subscribe(res=>{
-       for(let item in res){
-         if(res[item].countryInfo.iso2){
-           let country=res[item].countryInfo.iso2.toLowerCase()
-        console.log()
-        this.countries[country]=res[item].cases}
-      }
-      console.log(this.countries)
-      $('#vmap').vectorMap({
-        map: 'world_en',
-        backgroundColor: '#FBF6F6',
-        color: '#ffffff',
-        hoverOpacity: 0.7,
-        selectedColor: '#666666',
-        enableZoom: true,
-        showTooltip: true,
-        onLabelShow: (event,label, code)=>
-        { 
-          label.append(': '+this.countries[code]+' Cases'); 
-        },
-        values: this.countries,
-        scaleColors: ['#FFC4C6', '#FF0019'],
-        normalizeFunction: 'polynomial'
-    });
-
+      this.formatCountriesData(res)
     })
-
     
+  }
+
+  loadMap(){
+    $('#vmap').vectorMap({
+      map: 'world_en',
+      backgroundColor: '#FBF6F6',
+      color: '#ffffff',
+      hoverOpacity: 0.7,
+      selectedColor: '#fff',
+      enableZoom: true,
+      showTooltip: true,
+      onLabelShow: (event,label, code)=>
+      { 
+        label.append(': '+this.countries[code]+' Cases'); 
+      },
+      values: this.countries,
+      scaleColors: ['#FFC4C6', '#FF0019'],
+      normalizeFunction: 'polynomial'
+  });
+  }
+
+  formatCountriesData(value){
+    for(let item in value){
+      if(value[item].countryInfo.iso2){
+        let country=value[item].countryInfo.iso2.toLowerCase()
+      this.countries[country]=value[item].cases}
+    }
+    this.loadMap()
   }
 
 }

@@ -16,7 +16,9 @@ import { NewsComponent } from './dashboard/news/news.component';
 import { RecoveryComponent } from './dashboard/recovery/recovery.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ChartsModule } from 'ng2-charts';
-import { DecimalPipe } from './pipes/decimal.pipe'
+import { DecimalPipe } from './pipes/decimal.pipe';
+import { YoutubeComponent } from './feeds/youtube/youtube.component';
+import { NewsUpdateComponent } from './feeds/news-update/news-update.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DecimalPipe } from './pipes/decimal.pipe'
     SpreadChartComponent,
     NewsComponent,
     RecoveryComponent,
-    DecimalPipe
+    DecimalPipe,
+    YoutubeComponent,
+    NewsUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,7 @@
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.12);
     padding: 20px;
-    margin-bottom: 20px;
-    height: 250px;
+    margin: 10px;
     text-align: center;
 }
 .card p:first-child{

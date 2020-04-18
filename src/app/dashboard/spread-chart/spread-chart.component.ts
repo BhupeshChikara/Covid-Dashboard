@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Color } from 'ng2-charts';
 import { DashboardService } from 'src/app/services/dashboard.service';
+import { ChartDataSets } from 'chart.js';
+import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-spread-chart',
@@ -13,13 +14,63 @@ export class SpreadChartComponent implements OnInit {
   confirmedTimeSeries=[];
   recoveredTimeSeries=[];
   deathsTimeSeries=[];
-  
+  class='red'
+
+  lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Confirmed',borderDash:[2,1] },
+  ];
+
+  months=['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December']
+  date=new Date().getDate()
+  month=new Date().getMonth()
+
+  lineChartLabels: Label[] = [this.date-7+ ' ' +this.months[this.month], this.date-6+ ' ' +this.months[this.month],this.date-5+ ' ' +this.months[this.month],this.date-4+ ' ' +this.months[this.month],this.date-3+ ' ' +this.months[this.month],this.date-2+ ' ' +this.months[this.month],this.date-1+ ' ' +this.months[this.month]];
+
+  lineChartOptions = { 
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      xAxes: [{
+        color:'black',
+          gridLines: {
+              drawOnChartArea: false
+          }
+      }],
+      yAxes: [{
+        position: 'right',
+          gridLines: {
+              drawOnChartArea: false
+          },
+          ticks: {maxTicksLimit:5
+          }
+      }]
+  },
+  };
+
+  lineChartColors: Color[] = [
+    {
+      borderColor: '#ff0019',
+      backgroundColor: 'rgb(255,255, 255)',
+    },
+  ];
+
+  lineChartLegend = false;
+  lineChartPlugins = [];
+  lineChartType = 'line';
+  confirmedCases;
+  recoveredCases;
+  deathCases;
 
   constructor(private dashboardService:DashboardService) { }
   
   ngOnInit(): void {
        this.dashboardService.getTimeSeries().subscribe(res=>{
          this.convertToWorld(res)
+       })
+       this.dashboardService.getCases().subscribe(res=>{
+        this.confirmedCases=res['cases']
+        this.recoveredCases=res['recovered']
+        this.deathCases=res['deaths']
        })
   }
 
@@ -38,18 +89,51 @@ export class SpreadChartComponent implements OnInit {
         }
        }  
      })
+     this.lineChartData=[
+      { data: this.confirmedTimeSeries.slice(this.confirmedTimeSeries.length-7,this.confirmedTimeSeries.length), label: 'Confirmed',borderDash:[2,1] },
+    ];
   }
   
   changeClass(value){
     this.activeButton=value;
     if(value==='confirmed'){
-     
+      this.class='red'
+      this.lineChartData=[
+        { data: this.confirmedTimeSeries.slice(this.confirmedTimeSeries.length-7,this.confirmedTimeSeries.length), label: 'Confirmed',
+        borderDash: [2,1] }
+      ]
+      this.lineChartColors=[
+        {
+          borderColor: '#ff0019',
+          backgroundColor: 'rgb(255,255, 255)',
+        },
+      ];
     }
     else if(value==='deaths'){
-
+      this.class='red'
+      this.lineChartData=[
+        { data: this.deathsTimeSeries.slice(this.deathsTimeSeries.length-7,this.deathsTimeSeries.length), label: 'Deaths',
+        borderDash: [2,1] }
+      ]
+      this.lineChartColors=[
+        {
+          borderColor: '#ff0019',
+          backgroundColor: 'rgb(255,255, 255)'
+        }
+      ];
     }
     else{
-     
+      this.class='green'
+      this.lineChartData=[
+        { data: this.recoveredTimeSeries.slice(this.recoveredTimeSeries.length-7,this.recoveredTimeSeries.length), label: 'Recovered',
+        borderDash: [2,1] }
+      ]
+      this.lineChartColors=[
+        {
+          borderColor: '#06BA90',
+          backgroundColor: 'rgb(255,255, 255)',
+        },
+      ];  
     } 
   }
   

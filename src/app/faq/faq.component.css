@@ -17,6 +17,7 @@
   
   .faq-q span{
     font-size:22px;
+    margin-bottom: 15px;
   }
   
   .faq-q:nth-child(even):before {

@@ -8,18 +8,23 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 })
 export class CountriesComponent implements OnInit {
   
-  countries;
-  countriesCopy;
+  countries=[];
+  countriesCopy=[];
   constructor(private dashboardService:DashboardService) { }
 
   ngOnInit(): void {
     this.dashboardService.getCountriesData().subscribe(res=>{
-      console.log(res)
-      this.countries=res;
-      this.countriesCopy=res;
+       this.addCoutries(res)
     })
   }
 
+  addCoutries(value){
+    for(let item of value){
+      this.countries.push(item);
+      this.countriesCopy.push(item);
+    }
+  }
+  
   filter(value){
     let query=value.toLowerCase()
     this.countries=this.countriesCopy

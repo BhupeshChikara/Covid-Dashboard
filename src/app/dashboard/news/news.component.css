@@ -6,66 +6,55 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-    margin-right: 20px;
-    margin-bottom: 20px;
     padding: 20px;
-    height: 210px;
+    height: 100%;
+    flex: 1;
 }
+
 .mySlides {display: none;}
+
 img {vertical-align: middle;}
 
-/* Slideshow container */
 .slideshow-container {
-  /* max-width: 165px; */
   position: relative;
 }
 .col:first-child{
     margin-right: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
-.col:last-child{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+  .col:last-child{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-.col button{
+  .col button{
     padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: #FBF6F6;
     color: #FF0019;
     font-weight: 900;
-}
-.col p{
+  }
+  .col p{
     margin: 20px 0;
     font-weight: 900;
     font-size: 16px;
-}
+  }
 
-.col a,i{
+  .col a,i{
     text-decoration: none;
     color: #FF0019;
     font-weight: 100;
-}
-i{
+  }
+  i{
     font-weight: 100;
-}
+  }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 5px;
@@ -78,15 +67,12 @@ i{
 }
 
 .active, .dot:hover {
-    height: 10px;
-    width: 10px;
+  height: 10px;
+  width: 10px;
   background-color: #FF0019;
 }
 
-/* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
 }
@@ -101,13 +87,21 @@ i{
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
- .text {font-size: 11px}
+@media (max-width:410px){
+  .card{
+    height: 260px;
+  }
 }
-@media (max-width:420px){
-    .card{
-        margin-right: 0;
-    }
-    
+@media (max-width:359px){
+  .card{
+    height: 320px;
+  }
+  .mySlides{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mySlides .col:last-child{
+     padding: 10px;
+  }
+  
 }

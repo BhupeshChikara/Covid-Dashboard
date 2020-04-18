@@ -9,6 +9,23 @@
             <button (click)="changeClass('deaths')" [ngClass]="getClass('deaths')">Deaths</button>
         </div>
     </div>
-  
+        <div class="chart-wrapper" style="position: relative;">
+            <canvas baseChart 
+                [datasets]="lineChartData" 
+                [labels]="lineChartLabels" 
+                [options]="lineChartOptions"
+                [colors]="lineChartColors" 
+                [legend]="lineChartLegend" 
+                [chartType]="lineChartType" 
+                [plugins]="lineChartPlugins">
+            </canvas>
+            <div class="corner" style="position: absolute;top:0;left: 0;">
+                <p [ngClass]='class'>{{activeButton | titlecase}}</p>
+                <p [ngClass]='class'>{{date+ ' ' + months[month]}}</p>
+                <p *ngIf="activeButton=='confirmed'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{confirmedCases | decimal}}</p>
+                <p *ngIf="activeButton=='recovered'" style="font-weight: 900;font-size: 12px;color:#06BA90">{{recoveredCases | decimal}}</p>
+                <p *ngIf="activeButton=='deaths'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{deathCases | decimal }}</p>
+            </div>
+        </div>
 </div>
 

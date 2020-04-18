@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-
+ 
   slideIndex = 2;
   constructor() { }
 
@@ -20,13 +20,8 @@ export class NewsComponent implements OnInit {
 
  showSlides(n) {
   var i=0;
-  console.log(n)
-  console.log(typeof n)
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  console.log(slides)
-  console.log(dots)
-  console.log(slides['style'])
   if (n > slides.length) {this.slideIndex = 1}    
   if (n < 1) {this.slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
@@ -37,6 +32,6 @@ export class NewsComponent implements OnInit {
   }
   slides[this.slideIndex-1]['style'].display = "flex";  
   dots[this.slideIndex-1].className += " active";
-}
+  }
 
 }

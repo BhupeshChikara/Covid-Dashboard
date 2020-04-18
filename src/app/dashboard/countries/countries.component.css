@@ -1,10 +1,12 @@
+:host{
+  margin: 10px;
+}
 .card{
   box-sizing: border-box;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-    margin-right: 20px;
-    margin-bottom: 20px;
+    height: 100%;
 }
 .top{
     padding: 10px 15px;
@@ -60,17 +62,12 @@ ul li .detail .name{
   .country{
     display: flex;
     justify-content: space-between;
-
     flex-wrap: wrap;
   }
   .country .type{
     display: flex;
     align-items: center;
   }
-  .fontAwesome{ font-family: 'Helvetica', FontAwesome, sans-serif; }
-  @media (max-width:420px){
-    .card{
-        margin-right: 0;
-    }
-    
-}
+  .fontAwesome{ 
+    font-family: 'Helvetica', FontAwesome, sans-serif;
+   }

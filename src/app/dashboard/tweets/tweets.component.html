@@ -1,140 +1,30 @@
 <div class="card">
     <h3>Latest Tweets <span><img src="assets/images/Twweter.svg" alt=""></span></h3>
   <div class="tweets">
-      <div class="tweet">
+      <div *ngFor="let item of tweets" class="tweet">
           <div class="row">
               <div class="col">
-                  <img src="assets/images/Image 23.png" alt="">
+                  <img src="{{item.profile}}" alt="">
               </div>
               <div class="col">
                   <p><strong>
-                      World Health Organization
+                      {{item.username}}
                   </strong> </p>
-                  <p style="color: gray;">@WHO</p>
+                  <p style="color: gray;">{{item.tagName}}</p>
               </div>
           </div>
-          <div class="row">
-             <p style="font-weight: 530;">
+             <p style="font-weight: 530;margin-bottom: 10px;">
                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
              </p>
-          </div>
           <div class="row">
               <div class="col">
-                  <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 30px;"> 3.3k</span> 
-                  <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> 11.4k</span> 
+                  <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 30px;"> {{item.likes}}</span> 
+                  <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> {{item.share}}</span> 
               </div>
               <div class="col">
                   <p style="color: gray;">27th march</p>
               </div>
           </div>
-      </div>
-      <div class="tweet">
-        <div class="row">
-            <div class="col">
-                <img src="assets/images/Image 23.png" alt="">
-            </div>
-            <div class="col">
-                <p><strong>
-                    World Health Organization
-                </strong> </p>
-                <p style="color: gray;">@WHO</p>
-            </div>
-        </div>
-        <div class="row">
-           <p style="font-weight: 530;">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
-           </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 10px;"> 3.3k</span> 
-                <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> 11.4k</span> 
-            </div>
-            <div class="col">
-                <p style="color: gray;">27th march</p>
-            </div>
-        </div>
-    </div>
-    <div class="tweet">
-        <div class="row">
-            <div class="col">
-                <img src="assets/images/Image 23.png" alt="">
-            </div>
-            <div class="col">
-                <p><strong>
-                    World Health Organization
-                </strong> </p>
-                <p style="color: gray;">@WHO</p>
-            </div>
-        </div>
-        <div class="row">
-           <p style="font-weight: 530;">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
-           </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 10px;"> 3.3k</span> 
-                <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> 11.4k</span> 
-            </div>
-            <div class="col">
-                <p style="color: gray;">27th march</p>
-            </div>
-        </div>
-    </div>
-    <div class="tweet">
-        <div class="row">
-            <div class="col">
-                <img src="assets/images/Image 23.png" alt="">
-            </div>
-            <div class="col">
-                <p><strong>
-                    World Health Organization
-                </strong> </p>
-                <p style="color: gray;">@WHO</p>
-            </div>
-        </div>
-        <div class="row">
-           <p style="font-weight: 530;">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
-           </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 10px;"> 3.3k</span> 
-                <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> 11.4k</span> 
-            </div>
-            <div class="col">
-                <p style="color: gray;">27th march</p>
-            </div>
-        </div>
-    </div>
-    <div class="tweet">
-        <div class="row">
-            <div class="col">
-                <img src="assets/images/Image 23.png" alt="">
-            </div>
-            <div class="col">
-                <p><strong>
-                    World Health Organization
-                </strong> </p>
-                <p style="color: gray;">@WHO</p>
-            </div>
-        </div>
-        <div class="row">
-           <p style="font-weight: 530;">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
-           </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img width="13px" src="assets/images/like (1).svg" alt=""> <span style="color: #ff0019;margin-right: 10px;"> 3.3k</span> 
-                <img width="13px" src="assets/images/share (3).svg" alt=""> <span style="color:#54B5F5;"> 11.4k</span> 
-            </div>
-            <div class="col">
-                <p style="color: gray;">27th march</p>
-            </div>
-        </div>
-    </div>
+      </div>   
   </div>
 </div>
