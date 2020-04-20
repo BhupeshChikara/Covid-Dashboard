@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,11 @@ export class DashboardService {
   }
 
   getYouTubeUploadKey(){
-    return this.http.get('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=AIzaSyC2HU1Qbfos9C4rYcnTtsKfRLCB2l9AVWk').map(res=>res['items'][0].contentDetails.relatedPlaylists.uploads)
+    return this.http.get('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=').map(res=>res['items'][0].contentDetails.relatedPlaylists.uploads)
   }
 
   getYouTubeVideos(value){
-    return this.http.get('https://www.googleapis.com/youtube/v3/playlistItems?playlistId='+value+'&key=AIzaSyC2HU1Qbfos9C4rYcnTtsKfRLCB2l9AVWk&part=snippet&maxResults=12').map(res=>res['items'])
+    return this.http.get(`https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${value}&key=AIzaSyC2HU1Qbfos9C4rYcnTtsKfRLCB2l9AVWk&part=snippet&maxResults=12`).map(res=>res['items'])
   }
 
   getNewsFeeds(){

@@ -1,0 +1,30 @@
+<div class="card">
+    <h3>Latest Tweets <span><img src="assets/images/Twweter.svg" alt="twitter"></span></h3>
+  <div class="tweets">
+      <div *ngFor="let item of tweets" class="tweet">
+          <div class="row">
+              <div class="col">
+                  <img src="{{item.profile}}" alt="">
+              </div>
+              <div class="col">
+                  <p><strong>
+                      {{item.username}}
+                  </strong> </p>
+                  <p class="gray">{{item.tagName}}</p>
+              </div>
+          </div>
+             <p class="message">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vitae cum totam sit deserunt voluptatem, minima sint repellat sunt modi!
+             </p>
+          <div class="row">
+              <div class="col">
+                  <img width="13px" src="assets/images/like (1).svg" alt="like"> <span class="redLike"> {{item.likes}}</span> 
+                  <img width="13px" src="assets/images/share (3).svg" alt="share"> <span class="blue"> {{item.share}}</span> 
+              </div>
+              <div class="col">
+                  <p class="date">27th march</p>
+              </div>
+          </div>
+      </div>   
+  </div>
+</div>

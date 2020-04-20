@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="top">
+        <input class="fontAwesome" type="text" [(ngModel)]="query"  (keyup)="filter()" placeholder="&#xf002; Search Location">
+    </div>
+    <ul type="none">
+        <ng-container *ngIf="countries.length;else noCountry">
+            <li *ngFor="let item of countries;let i = index">
+                <div class="country">
+                    <div class="detail">
+                        <div class="name">
+                            <img width="20px" src="{{item.countryInfo.flag}}" alt="flag">
+                            <p>{{item.country}}</p>
+                        </div>
+                        <p class="cases">{{ item.cases | decimal }} Affected | {{item.recovered | decimal}} Recovered</p>
+                    </div>
+                    <div class="type">
+                        <img src="assets/images/Up.svg" alt="up">
+                    </div>
+                </div>
+            </li>  
+        </ng-container>
+        <ng-template #noCountry>
+            <li>
+                There is no item
+            </li>
+        </ng-template>
+    </ul>
+</div>

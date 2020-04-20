@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="row">
+        <div class="col">
+            <h3>Spread Trends</h3>
+        </div>
+        <div class="col">
+            <button (click)="changeClass('confirmed')" [ngClass]="getClass('confirmed')">Confirmed</button>
+            <button (click)="changeClass('recovered')" [ngClass]="getClass('recovered')">Recovered</button>
+            <button (click)="changeClass('deaths')" [ngClass]="getClass('deaths')">Deaths</button>
+        </div>
+    </div>
+        <div class="chart-wrapper">
+            <canvas baseChart 
+                [datasets]="lineChartData" 
+                [labels]="lineChartLabels" 
+                [options]="lineChartOptions"
+                [colors]="lineChartColors" 
+                [legend]="lineChartLegend" 
+                [chartType]="lineChartType" 
+                [plugins]="lineChartPlugins">
+            </canvas>
+            <div class="corner">
+                <p [ngClass]='class'>{{activeButton | titlecase}}</p>
+                <p [ngClass]='class'>{{date+ ' ' + months[month]}}</p>
+                <ng-container [ngSwitch]="activeButton">
+                    <p *ngSwitchCase="'confirmed'" class="red cases" >{{confirmedCases | decimal}}</p>
+                    <p *ngSwitchCase="'recovered'" class="green cases" >{{recoveredCases | decimal}}</p>
+                    <p *ngSwitchCase="'deaths'" class="red cases">{{deathCases | decimal }}</p>
+                </ng-container>
+            </div>
+        </div>
+</div>
+

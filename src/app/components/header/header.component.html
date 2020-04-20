@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="row">
+        <div routerLink="/" class="header_brand">
+            <img src="assets/images/virus.svg" alt="logo">
+            <p>
+                COVID'19
+            </p>
+        </div>
+        <div class="toggle">
+            <button (click)="showDropdown()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </div>
+        <ul type="none" #nav>
+            <li (click)="showDropdown()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</li>
+            <li (click)="showDropdown()" routerLink="/faq" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">FAQ</li>
+            <li (click)="showDropdown()" routerLink="/importantLinks" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HELPFUL LINKS</li>
+        </ul>
+</div>
