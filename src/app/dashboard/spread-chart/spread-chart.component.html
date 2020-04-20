@@ -22,9 +22,11 @@
             <div class="corner" style="position: absolute;top:0;left: 0;">
                 <p [ngClass]='class'>{{activeButton | titlecase}}</p>
                 <p [ngClass]='class'>{{date+ ' ' + months[month]}}</p>
-                <p *ngIf="activeButton=='confirmed'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{confirmedCases | decimal}}</p>
-                <p *ngIf="activeButton=='recovered'" style="font-weight: 900;font-size: 12px;color:#06BA90">{{recoveredCases | decimal}}</p>
-                <p *ngIf="activeButton=='deaths'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{deathCases | decimal }}</p>
+                <ng-container [ngSwitch]="activeButton">
+                    <p *ngSwitchCase="'confirmed'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{confirmedCases | decimal}}</p>
+                    <p *ngSwitchCase="'recovered'" style="font-weight: 900;font-size: 12px;color:#06BA90">{{recoveredCases | decimal}}</p>
+                    <p *ngSwitchCase="'deaths'" style="font-weight: 900;font-size: 12px;color:#ff0019">{{deathCases | decimal }}</p>
+                </ng-container>
             </div>
         </div>
 </div>

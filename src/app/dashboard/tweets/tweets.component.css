@@ -23,7 +23,7 @@ span{
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    height: 277px;
+    height: 295px;
 }
 .tweet{
     border-bottom: 1px solid #dbdbdb;
@@ -34,7 +34,6 @@ span{
     display: flex;
     align-items: center;
     padding-bottom: 10px;
-    
 }
 .row:first-child .col img{
     border-radius: 50%;

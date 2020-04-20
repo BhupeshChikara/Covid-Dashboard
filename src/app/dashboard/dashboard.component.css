@@ -79,6 +79,7 @@ app-news{
         width: 100%;        
     }
     app-spread-chart{
+        flex: none;
         width: 100%;
     }
     app-news{

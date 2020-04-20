@@ -17,7 +17,7 @@ export class SpreadChartComponent implements OnInit {
   class='red'
 
   lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Confirmed',borderDash:[2,1] },
+    { data: this.confirmedTimeSeries, label: 'Confirmed',borderDash:[2,1] },
   ];
 
   months=['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December']
@@ -64,14 +64,18 @@ export class SpreadChartComponent implements OnInit {
   constructor(private dashboardService:DashboardService) { }
   
   ngOnInit(): void {
-       this.dashboardService.getTimeSeries().subscribe(res=>{
+       this.dashboardService.getTimeSeries().switchMap(res=>{
          this.convertToWorld(res)
+        return this.dashboardService.getCases()
+       }).subscribe(res=>{
+         this.updateCases(res)
        })
-       this.dashboardService.getCases().subscribe(res=>{
-        this.confirmedCases=res['cases']
-        this.recoveredCases=res['recovered']
-        this.deathCases=res['deaths']
-       })
+  }
+
+  updateCases(value){
+    this.confirmedCases=value['cases']
+    this.recoveredCases=value['recovered']
+    this.deathCases=value['deaths']
   }
 
   convertToWorld(value){
@@ -96,33 +100,36 @@ export class SpreadChartComponent implements OnInit {
   
   changeClass(value){
     this.activeButton=value;
-    if(value==='confirmed'){
-      this.class='red'
-      this.lineChartData=[
-        { data: this.confirmedTimeSeries.slice(this.confirmedTimeSeries.length-7,this.confirmedTimeSeries.length), label: 'Confirmed',
-        borderDash: [2,1] }
-      ]
-      this.lineChartColors=[
-        {
-          borderColor: '#ff0019',
-          backgroundColor: 'rgb(255,255, 255)',
-        },
-      ];
-    }
-    else if(value==='deaths'){
-      this.class='red'
-      this.lineChartData=[
-        { data: this.deathsTimeSeries.slice(this.deathsTimeSeries.length-7,this.deathsTimeSeries.length), label: 'Deaths',
-        borderDash: [2,1] }
-      ]
-      this.lineChartColors=[
-        {
-          borderColor: '#ff0019',
-          backgroundColor: 'rgb(255,255, 255)'
-        }
-      ];
-    }
-    else{
+    switch(value){
+      case 'confirmed':{
+        this.class='red'
+        this.lineChartData=[
+          { data: this.confirmedTimeSeries.slice(this.confirmedTimeSeries.length-7,this.confirmedTimeSeries.length), label: 'Confirmed',
+          borderDash: [2,1] }
+        ]
+        this.lineChartColors=[
+          {
+            borderColor: '#ff0019',
+            backgroundColor: 'rgb(255,255, 255)',
+          },
+        ];
+        break;
+      }
+      case 'deaths':{
+        this.class='red'
+        this.lineChartData=[
+          { data: this.deathsTimeSeries.slice(this.deathsTimeSeries.length-7,this.deathsTimeSeries.length), label: 'Deaths',
+          borderDash: [2,1] }
+        ]
+        this.lineChartColors=[
+          {
+            borderColor: '#ff0019',
+            backgroundColor: 'rgb(255,255, 255)'
+          }
+        ];
+        break;
+      }
+      case 'recovered':{ 
       this.class='green'
       this.lineChartData=[
         { data: this.recoveredTimeSeries.slice(this.recoveredTimeSeries.length-7,this.recoveredTimeSeries.length), label: 'Recovered',
@@ -134,7 +141,9 @@ export class SpreadChartComponent implements OnInit {
           backgroundColor: 'rgb(255,255, 255)',
         },
       ];  
-    } 
+        break;
+      }
+    }
   }
   
 

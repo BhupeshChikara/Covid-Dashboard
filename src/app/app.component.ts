@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'covidDashboard';
+  ngOnInit(){
+    setInterval(()=>{
+      location.reload()
+    },60*1000)
+  }
 }

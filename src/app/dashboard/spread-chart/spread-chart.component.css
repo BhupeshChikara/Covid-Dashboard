@@ -4,7 +4,6 @@
     box-shadow: 0 5px 20px rgba(0,0,0,0.12);
     margin: 10px;
     padding: 20px;
-    height: 210px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -56,12 +55,6 @@ h3{
     color:#06BA90
 }
 @media (max-width:410px){
-    .card{
-        padding: 0;
-    }
-    .row:first-child{
-       padding: 20px 20px 0 20px; 
-    }
     .card .row:first-child{
         justify-content: center;
     }
