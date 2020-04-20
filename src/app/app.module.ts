@@ -20,6 +20,7 @@ import { DecimalPipe } from './pipes/decimal.pipe';
 import { YoutubeComponent } from './components/feeds/youtube/youtube.component';
 import { NewsUpdateComponent } from './components/feeds/news-update/news-update.component'
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     RecoveryComponent,
     DecimalPipe,
     YoutubeComponent,
-    NewsUpdateComponent
+    NewsUpdateComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard.service';
-declare var $:any
-declare var sample_data:any;
+declare var $:any;
+
 @Component({
   selector: 'app-world-map',
   templateUrl: './world-map.component.html',

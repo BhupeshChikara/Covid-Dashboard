@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
@@ -7,16 +7,22 @@ import { DashboardService } from 'src/app/services/dashboard.service';
   styleUrls: ['./recovery.component.css']
 })
 export class RecoveryComponent implements OnInit {
- 
-  cases
+  
+  cases;
   constructor(private dashboardService:DashboardService) {
     setInterval(()=>{
-    this.dashboardService.getCases().subscribe(res=>this.cases=res)
+    this.dashboardService.getCases().subscribe(res=>{
+    if(res){
+      this.cases=res;
+    }
+    })
     },60*1000)
    }
 
   ngOnInit(): void {
-    this.dashboardService.getCases().subscribe(res=>this.cases=res)
+    this.dashboardService.getCases().subscribe(res=>{
+      this.cases=res
+    })
   }
 
   getPercentage(){

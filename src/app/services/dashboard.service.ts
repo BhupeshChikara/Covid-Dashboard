@@ -23,7 +23,7 @@ export class DashboardService {
   }
 
   getYouTubeUploadKey(){
-    return this.http.get('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=').map(res=>res['items'][0].contentDetails.relatedPlaylists.uploads)
+    return this.http.get('https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&forUsername=who&key=AIzaSyC2HU1Qbfos9C4rYcnTtsKfRLCB2l9AVWk').map(res=>res['items'][0].contentDetails.relatedPlaylists.uploads)
   }
 
   getYouTubeVideos(value){

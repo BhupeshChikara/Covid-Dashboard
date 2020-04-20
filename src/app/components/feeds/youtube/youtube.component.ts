@@ -22,8 +22,10 @@ export class YoutubeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dashboardService.getYouTubeUploadKey().switchMap(res=>{
+       console.log(res)
         return  this.dashboardService.getYouTubeVideos(res)
     }).subscribe(res=>{
+      console.log(res)
        this.videos=res
     })
   }

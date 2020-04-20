@@ -1,8 +1,13 @@
 <div class="container">
-    <a  class="card" *ngFor="let item of news" href="{{item.link}}" target="_blank">
-        <div class="row">
-            <p>{{item.date | date}}</p> 
-            <p>{{item.title}}</p>
-        </div>
-    </a>
+    <ng-container *ngIf="news;else loader">
+        <a  class="card" *ngFor="let item of news" href="{{item.link}}" target="_blank">
+            <div class="row">
+                <p>{{item.date | date}}</p> 
+                <p>{{item.title}}</p>
+            </div>
+        </a>
+    </ng-container>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
 </div>

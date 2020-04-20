@@ -1,10 +1,15 @@
 <div class="container">
-    <div class="card" *ngFor="let item of videos;">
-        <div class="row">
-            <iframe [src]="getEmbededUrl(item)" frameborder="0"></iframe>
+    <ng-container *ngIf="videos;else loader">
+        <div class="card" *ngFor="let item of videos;">
+            <div class="row">
+                <iframe [src]="getEmbededUrl(item)" frameborder="0"></iframe>
+            </div>
+            <div class="row">
+                <p>{{item.snippet.title}}</p>
+            </div>
         </div>
-        <div class="row">
-            <p>{{item.snippet.title}}</p>
-        </div>
-    </div>
+    </ng-container>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
 </div>
